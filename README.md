@@ -68,7 +68,7 @@ For fine-grained dependency management, use [Poetry](https://python-poetry.org/)
 
 - Local MCP servers can be added in [MCP server folder](agentbuilder/mcp/servers)
 
-- Multiple MCP clients can be configured in [MPC client file](agentbuilder/mcp/clients/multi_mcp_client.py)
+- Multiple MCP clients can be configured in [MCP client file](agentbuilder/mcp/clients/multi_mcp_client.py)
 
   ```py
   mcp_servers={
