@@ -52,6 +52,9 @@ start-server = "agentbuilder.main:start_api"
 migrate="agentbuilder.migrate:migrate"
 start-ui = "agentbuilder.ui.app:launch_ui"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2"
+
 [tool.poetry.requires-plugins]
 poetry-plugin-export = ">=1.8"
 

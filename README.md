@@ -57,12 +57,21 @@ For fine-grained dependency management, use [Poetry](https://python-poetry.org/)
 
 4. Start the server in the new terminal
 
-   ```sh
-   poetry run start-server
-   ```
+  ```sh
+  poetry run start-server
+  ```
 
 > [!NOTE]
 > Poetry will create a virtual environment for us.
+
+### Running Tests
+
+Install the development dependencies and run the test suite with
+
+```sh
+poetry install --with dev
+poetry run pytest
+```
 
 #### MCP servers
 
