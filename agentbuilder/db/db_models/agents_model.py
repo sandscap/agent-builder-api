@@ -7,8 +7,8 @@ PyObjectId = Annotated[str, BeforeValidator(str)]
 
 class Agent_Type(str, Enum):
     TOOL_CALLING = 'tool_calling'
-    STRCUTURED = 'structured',  
-    REACT   = 'react',
+    STRUCTURED = 'structured'
+    REACT   = 'react'
     JSON = 'json'
 
 class Source_Type(str, Enum):
@@ -22,7 +22,12 @@ class AgentModel(BaseModel):
     """
     id: Optional[PyObjectId] = Field(alias="_id", default=None)
     name: str = Field(...)
-    agent_type: str = Literal[Agent_Type.TOOL_CALLING,Agent_Type.STRCUTURED,Agent_Type.REACT,Agent_Type.JSON]
+    agent_type: str = Literal[
+        Agent_Type.TOOL_CALLING,
+        Agent_Type.STRUCTURED,
+        Agent_Type.REACT,
+        Agent_Type.JSON,
+    ]
     source_type: str= Literal[Source_Type.UI,Source_Type.CODE]
     preamble: str =  Field(...)
     tools: List[str]
@@ -37,3 +42,4 @@ class AgentsCollection(BaseModel):
     """
 
     students: List[AgentModel]
+
