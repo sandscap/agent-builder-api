@@ -120,12 +120,12 @@ async def get_tools()->dict[str,ToolData]:
     
 @app.delete("/api/chatHistory/{chat_id}")
 def deleteChatHistory(chat_id:str):
-    chat_history= chat_memory_dict.get(chat_id)
-    if chat_history:
-        del chat_history
+    chat_history = chat_memory_dict.get(chat_id)
+    if chat_history is not None:
+        del chat_memory_dict[chat_id]
         return JSONResponse({"chatResponse": f"{chat_id} deletion complete"})
     else:
-        return JSONResponse({"chatResponse": f"{chat_id} not found to delete"},status_code=404)
+        return JSONResponse({"chatResponse": f"{chat_id} not found to delete"}, status_code=404)
 
 def start_api():
     uvicorn.run("agentbuilder.main:app", host="0.0.0.0", port=8080,workers=1,reload=False,log_level=log_level)
